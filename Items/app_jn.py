@@ -49,6 +49,7 @@ class Wines(wine_db.Model):
 def home():
     return render_template("index.html")
 
+
 @app.route("/api/wine_data")
 def wine_data():
     results = wine_db.session.query(
@@ -68,7 +69,23 @@ def wine_data():
 
 @app.route("/table")
 def table():
-     return render_template("index2.html")
+     return render_template("index5.html")
+
+@app.route("/redvarietals")
+def redvarietals():
+    return render_template("redvarietals.html")
+
+@app.route("/rosevarietals")
+def rosevarietals():
+    return render_template("rosevarietals.html")
+
+@app.route("/whitevarietals")
+def whitevarietals():
+    return render_template("whitevarietals.html")
+
+@app.route("/sparklingvarietals")
+def sparklingvarietals():
+    return render_template("sparklingvarietals.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
