@@ -26,6 +26,7 @@
 
         <div class="buttons">
           <a button class="btn" type="button" a href="{{ url_for('table') }}">Table</button></a>
+          <a button class="btn" type="button" a href="{{ url_for('top_country_wines') }}">Top Wines by Country</button></a>
           <a button class="btn" type="button" href="FILL KOUSTAV'S DATA HERE">Data</button></a>
           <a button class="btn" type="button" value="Submit" onclick="myclick()">World Map</button></a>
           <div id='mylink'></div>
@@ -60,13 +61,34 @@
           </div>
         </nav>
 
-      <div class="container">
-          <h1>Summary</h1>
-          <p>Welcome! Search for your favorite wines below.</p>
-          <br>
-          <script src="index.html"></script>
+<div class=" container content ">
+        <div class="row ">
+            <div class="col-md-8">
+                <div class="col-md-12 ">
+                    <h2>Wine</h2>
+                    <hr>
+            <div class="row ">
+                <div class="col-md-6 ">
+                        <img src="static/images/winevariety.png" class="img-thumbnail float-left"  alt="Wine">
+                    </div>
+                    <p>Test text.</p>
+                </div>
+            </div>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+          <script src="{{ url_for('home') }}"></script>
 </div>
 </body>
+  <footer class="page-footer font-small ">
+        <div class="footer-copyright text-center py-3 ">&copy;<br>Wine Not?<br>
+        Jillian Nemec & Kayla Macaione </div>
+    </footer>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

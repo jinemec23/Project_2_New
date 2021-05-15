@@ -1,15 +1,16 @@
-d3.json("/api/wine_data").then((importedData) => {
-    console.log(importedData)
+d3.json('static/data/winedata_jn.json').then((importedData) => {
+    var winedata_jn = importedData;
+    console.log(winedata_jn);
     
-    d3.select("tbody")
-        .selectAll("tr")
-        .data(winedata_jn)
-        .enter()
-        .append("tr")
-        .html(function(d) {
-        return `<td>${d.Vintage}</td><td>${d.Country}</td><td>${d.County}</td><td>${d.Designation}</td><td>${d.Points}</td><td>${d.Price}</td><td>${d.Province}</td><td>${d.Title}</td><td>${d.Variety}</td><td>${d.Winery}</td><td>${d.Year}</td>`;
-        });
-});
+    // d3.select("tbody")
+    //     .selectAll("tr")
+    //     .data(winedata_jn)
+    //     .enter()
+    //     .append("tr")
+    //     .html(function(d) {
+    //     return `<td>${d.Vintage}</td><td>${d.Country}</td><td>${d.County}</td><td>${d.Designation}</td><td>${d.Points}</td><td>${d.Price}</td><td>${d.Province}</td><td>${d.Title}</td><td>${d.Variety}</td><td>${d.Winery}</td><td>${d.Year}</td>`;
+    //     });
+
 
 var button = d3.select("#filter-btn");
 var form = d3.select("#form");
@@ -62,3 +63,4 @@ function runEnter() {
         });
     });
 };
+});

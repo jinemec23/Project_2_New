@@ -29,7 +29,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 wine_db = SQLAlchemy(app)
 
 class Wines(wine_db.Model):
-    __tablename__ = 'wines'
+    __tablename__ = 'wines_clean'
     # id = wine_db.Column(wine_db.Integer, primary_key=True)
     Vintage = wine_db.Column(wine_db.String)
     Country = wine_db.Column(wine_db.String)
@@ -43,12 +43,61 @@ class Wines(wine_db.Model):
     Winery = wine_db.Column(wine_db.String)
     Year = wine_db.Column(wine_db.Integer)
 
+    def __repr__(self):
+        return '<Wines %r>' % (self.name)
+
 
 #create route that renders index.html template
 @app.route("/")
 def home():
     return render_template("index.html")
 
+
+@app.route("/api/wine_data2")
+def wine_data2():
+    results = wine_db.session.query(
+        Wines.Vintage,
+        Wines.Country,
+        Wines.County,
+        Wines.Designation,
+        Wines.Points,
+        Wines.Price,
+        Wines.Province,
+        Wines.Title,
+        Wines.Variety,
+        Wines.Winery,
+        Wines.Year
+    ).limit(10).all()
+
+   
+    vintage = [result[0] for result in results]
+    country = [result[1] for result in results]
+    county = [result[2] for result in results]
+    designation = [result[3] for result in results]
+    points = [result[4] for result in results]
+    price = [result[5] for result in results]
+    province = [result[6] for result in results]
+    title = [result[7] for result in results]
+    variety = [result[8] for result in results]
+    winery = [result[9] for result in results]
+    year = [result[10] for result in results]
+
+    wine_varieties = [{
+        "title": title, 
+       "vintage": vintage,
+       "country": country,
+       "county": county,
+       "designation": designation,
+       "points": points,
+       "price": price,
+       "province": province,
+       "variety": variety, 
+       "winery": winery,
+       "year": year     
+    }]
+    
+
+    return jsonify(wine_varieties)
 
 @app.route("/api/wine_data")
 def wine_data():
@@ -69,7 +118,11 @@ def wine_data():
 
 @app.route("/table")
 def table():
-     return render_template("index5.html")
+     return render_template("tablesearch.html")
+
+@app.route("/table2")
+def table2():
+     return render_template("index2donotuse.html")
 
 @app.route("/redvarietals")
 def redvarietals():
@@ -86,6 +139,10 @@ def whitevarietals():
 @app.route("/sparklingvarietals")
 def sparklingvarietals():
     return render_template("sparklingvarietals.html")
+
+@app.route("/topwinesbycountry")
+def top_country_wines():
+    return render_template("winesbycountry.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
