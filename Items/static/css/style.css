@@ -1,18 +1,14 @@
 .navbar {
   font-family: Georgia, 'Times New Roman', Times, serif;
-  position: fixed;
   width: 100%;
-  top: 0;
-  left: 0;  
+  padding: 50px;
 }
 
 .navigation {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.btn {
-  margin-top: 50px;
-}
+
 
 @media (max-width: 480px){
   .navigation {
@@ -20,10 +16,10 @@
   }}
   
   .container {
-      padding-top: 10px;
+   
       font-family: Georgia, 'Times New Roman', Times, serif;
       align-items: center;
-      margin-top: 100px;
+
   }
   
   .h1 {
@@ -103,3 +99,30 @@
       padding:100px;
   }
 
+
+  .tooltip {
+    position: absolute;
+    width: auto;
+    height: auto;
+   
+    font: 12px sans-serif;
+    color: white;
+    text-align: center;
+    background: #551aaf;
+
+  }
+  
+  .axisText {
+    font-family: sans-serif;
+    font-weight: bold;
+    fill: #551aaf;
+    text-anchor: middle;
+  }
+
+  .footer {
+    padding-top:100px;
+  }
+
+  .bar {
+    color
+  }

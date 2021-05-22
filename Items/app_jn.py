@@ -144,5 +144,9 @@ def sparklingvarietals():
 def top_country_wines():
     return render_template("winesbycountry.html")
 
+@app.route("/test")
+def test():
+    return render_template("test.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
