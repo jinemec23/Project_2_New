@@ -12,10 +12,10 @@
 
   // Define the chart's margins as an object
   var chartMargin = {
-    top: 60,
-    right: 60,
-    bottom: 60,
-    left: 60
+    top: 40,
+    right: 40,
+    bottom: 40,
+    left: 40
   };
 
   // Define dimensions of the chart area
@@ -85,7 +85,7 @@
      
     
     var yLinearScale = d3.scaleLinear()
-      .domain([d3.min(italianwine, d => d.Price), d3.max(italianwine, d => d.Price)-600])
+      .domain([d3.min(italianwine, d => d.Points), d3.max(italianwine, d => d.Points)])
       // .domain([d3.min(topPoints, d => d.Price), d3.max(topPoints, d => d.Price)-600])
       .range([chartHeight, 0]);
      
@@ -103,9 +103,9 @@
 
     var line = d3.line()
       .x(d => xTimeScale(d.date))
-      .y(d => yLinearScale2(d.Price));
+      .y(d => yLinearScale(d.Points));
 
-    chartGroup.append("path")
+    chartGroup.append("chart")
       .data([italianwine])
       .attr("d", line)
       .attr("fill", "none")
@@ -118,7 +118,7 @@
         .append("circle")
         .attr("class", "chart")
         .attr("cx", d => xTimeScale(d.date))
-        .attr("cy", d => yLinearScale(d.Price))
+        .attr("cy", d => yLinearScale(d.Points))
         .attr("r", "10")
         .attr("fill", "purple")
         .attr("stroke-width", "1")
@@ -147,7 +147,8 @@
       })
       .on("click", function(d, i) {
         alert(`Hey! You clicked bar ${topPoints[i]}!`);
-      })
+      });
+  
 
 
     

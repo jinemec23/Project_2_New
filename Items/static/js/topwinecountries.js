@@ -51,6 +51,7 @@ function makeResponsive(){
 
     var topWines = topPoints.slice(0,50);
 
+
     var xBandScale = d3.scaleBand()
     .domain(topWines.map(data => data.Country))
     .range([0, chartWidth])
@@ -59,6 +60,8 @@ function makeResponsive(){
     var yLinearScale = d3.scaleLinear()
     .domain([90, d3.max(topWines, data => data.Points)])
     .range([chartHeight, 0])
+
+
 
     var bottomAxis = d3.axisBottom(xBandScale)
     var leftAxis = d3.axisLeft(yLinearScale).ticks(10);
@@ -80,31 +83,28 @@ function makeResponsive(){
   
     chartGroup.call(toolTip);
 
-    chartGroup.selectAll(".bar")
+    var barsGroup = chartGroup.selectAll(".bar")
       .data(topWines)
       .enter()
       .append("rect")
+      .attr("fill","purple")
+      // .attr("fill", function(d) { return color(d.key); })
       .attr("class", "bar")
       .attr("x", data => xBandScale(data.Country))
       .attr("y", data => yLinearScale(data.Points))
       .attr("width", xBandScale.bandwidth())
       .attr("height", data => chartHeight - yLinearScale(data.Points))
-      .on("click", function(d, i) {
-        alert(`Hey! You clicked bar ${topWines[i]}!`);
-      })
-      // .on("click", function(data){
-      //   show(`${data.Title}</strong><br> Variety: ${data.Variety}<br> Country: ${data.Country}<br> Points: ${data.Points}<br> Price: ${data.Price}<br> Winery: ${data.Winery}`);
-      // })
-      .on("mouseover", function(d){
-        toolTip.show(d, this)
-      .transition()
-      .duration(15)
-      .attr("fill","red");
-      })
-      .on("mouseout", function(d){
-        toolTip.hide(d)
-              .attr("fill", "purple");
-      });
+      
+    barsGroup.on("mouseover", function(d){
+          toolTip.show(d, this)
+        .transition
+        .duration(15)
+        .attr("fill","red");
+        })
+        .on("mouseout", function(d){
+          toolTip.hide(d)
+                .attr("fill", "purple");
+        });
 
      
 

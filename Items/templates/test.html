@@ -6,7 +6,7 @@
 
     <!-- Our CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-     <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
 
   </head>
   <body>
@@ -17,8 +17,9 @@
         </div>
 
         <div class="buttons">
-          <a button class="btn" type="button" a href="{{ url_for('table') }}">Table</button></a>
-          <a button class="btn" type="button" a href="{{ url_for('top_country_wines') }}">Top Wines by Country</button></a>
+            <a button class="btn" type="button" a href="{{ url_for('table') }}">Searchable Wine List</button></a>
+          <a button class="btn" type="button" a href="{{ url_for('top_country_wines') }}">Ratings by Country</button></a>
+          <a button class="btn" type="button" a href="{{ url_for('italy') }}">Italy's Best Vintage Wines</button></a>
           <a button class="btn" type="button" href="FILL KOUSTAV'S DATA HERE">Data</button></a>
           <a button class="btn" type="button" value="Submit" onclick="myclick()">World Map</button></a>
           <div id='mylink'></div>
@@ -54,22 +55,13 @@
         </nav>
 
 
-</div>
-        <div id="bar"></div>
-        <script src="static/js/topwinecountries.js"></script>
-       <script src="https://d3js.org/d3.v5.min.js"></script>
-
        <div class=" container content ">
         <div class="row ">
-            <div class="col-md-8">
-                <div class="col-md-12 ">
-                    <h2>PLACEHOLDER</h2>
-                    <hr>
-            <div class="row ">
-                <div class="col-md-6 ">
-                        <script type="text/javascript" src="static/js/topwinecountries copy.js"></script>
-                    </div>
-                    <p>Test text.</p>
+            <div class="col-md-6">
+                    <h2>ITALY</h2>
+<hr>
+
+
                 </div>
             </div>
     
@@ -83,8 +75,7 @@ crossorigin=""></script>
 <!-- d3 JavaScript -->
 <script src="https://d3js.org/d3.v5.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
-
-
+<script type="text/javascript" src="static/js/topwinecountries copy.js"></script>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
